@@ -19,9 +19,9 @@ class ProcessMeasurement(models.TransientModel):
     _description = 'Process Measurement'
 
     name = fields.Char('Name', compute='_compute_get_name')
-    csv_file = fields.Binary(attachment=True,
-                             copy=False,
-                             readonly=True)
+    csv_file = fields.Binary(attachment=True, readonly=True,
+                             copy=False
+                             )
 
     def _compute_get_name(self):
         today = datetime.now().strftime('%d-%m-%Y')
